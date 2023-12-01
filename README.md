@@ -4,7 +4,7 @@
 
 |        | Problem                                            | Solution                                                                         | Execution time        | Lines of code | Finished |
 |--------|----------------------------------------------------|----------------------------------------------------------------------------------|-----------------------|---------------|----------|
-| Day 1  | [Problem 1](https://adventofcode.com/2023/day/1)   | [day01.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day01.rs) | 72.694 µs + 2.0738 ms | 74            | ✓        |
+| Day 1  | [Problem 1](https://adventofcode.com/2023/day/1)   | [day01.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day01.rs) | 61.209 µs + 2.1395 ms | 64            | ✓        |
 
 > The benchmarks are measured (non-scientifically) with [cargo-criterion](https://github.com/bheisler/cargo-criterion) on a AMD Ryzen 5 3600 Desktop. More in the [benchmarks](#benchmarks) section.
 > The lines of code are measured using [ghloc](https://github.com/MrRobb/ghloc-rs), excluding comments and empty lines.
