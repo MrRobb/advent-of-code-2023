@@ -39,7 +39,7 @@ fn find_digit(line: &str, reverse: bool) -> Option<u64> {
     })
 }
 
-pub fn part1(input: &str) -> u64 {
+pub fn join_digits(input: &str) -> u64 {
     input
         .lines()
         .map(|line: &str| {
@@ -50,7 +50,7 @@ pub fn part1(input: &str) -> u64 {
         .sum()
 }
 
-pub fn part2(input: &str) -> u64 {
+pub fn join_speelled_digits(input: &str) -> u64 {
     input
         .lines()
         .map(|line: &str| {
@@ -64,7 +64,7 @@ pub fn part2(input: &str) -> u64 {
 pub fn main() {
     let input = std::fs::read_to_string("input/day01.txt").expect("Input file not found");
     let now = std::time::Instant::now();
-    println!("PART 1 = {}", part1(&input));
-    println!("PART 2 = {}", part2(&input));
+    println!("PART 1 = {}", join_digits(&input));
+    println!("PART 2 = {}", join_speelled_digits(&input));
     println!("Execution time: {:?}", now.elapsed());
 }
