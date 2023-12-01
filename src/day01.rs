@@ -2,8 +2,8 @@
 
 fn find_digit(line: &str, reverse: bool) -> Option<u64> {
     let digits = [
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "0", "1",
-        "2", "3", "4", "5", "6", "7", "8", "9",
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "0", "1", "2", "3", "4", "5",
+        "6", "7", "8", "9",
     ];
     let mut min_position = None;
     let mut min_digit = None;
