@@ -43,16 +43,9 @@ pub fn part1(input: &str) -> u64 {
     input
         .lines()
         .map(|line: &str| {
-            let first = line.chars().find(char::is_ascii_digit);
-            let last = line.chars().rfind(char::is_ascii_digit);
-
-            if let (Some(first), Some(last)) = (first, last) {
-                let first = u64::from(first.to_digit(10).unwrap());
-                let last = u64::from(last.to_digit(10).unwrap());
-                first * 10 + last
-            } else {
-                0
-            }
+            let first = u64::from(line.chars().find(char::is_ascii_digit).unwrap().to_digit(10).unwrap());
+            let last = u64::from(line.chars().rfind(char::is_ascii_digit).unwrap().to_digit(10).unwrap());
+            first * 10 + last
         })
         .sum()
 }
@@ -61,14 +54,9 @@ pub fn part2(input: &str) -> u64 {
     input
         .lines()
         .map(|line: &str| {
-            let first = find_digit(line, false);
-            let last = find_digit(line, true);
-
-            if let (Some(first), Some(last)) = (first, last) {
-                first * 10 + last
-            } else {
-                0
-            }
+            let first = find_digit(line, false).unwrap();
+            let last = find_digit(line, true).unwrap();
+            first * 10 + last
         })
         .sum()
 }
