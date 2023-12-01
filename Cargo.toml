@@ -11,7 +11,7 @@ default-run = "advent-of-code-2023"
 
 
 [dev-dependencies]
-criterion = "0.4"
+criterion = "0.5.1"
 
 [profile.release]
 lto = "fat"
