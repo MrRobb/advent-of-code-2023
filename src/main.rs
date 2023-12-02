@@ -6,7 +6,7 @@ use advent_of_code_2023::*;
 fn main() {
     let mains = [
         day01::main,
-        // day02::main,
+        day02::main,
         // day03::main,
         // day04::main,
         // day05::main,
