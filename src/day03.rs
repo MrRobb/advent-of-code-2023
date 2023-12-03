@@ -6,8 +6,7 @@ use pathfinding::matrix::Matrix;
 
 fn build_part_map(map: &Matrix<char>) -> BTreeMap<(usize, usize), Vec<u64>> {
     let mut part_numbers = BTreeMap::<(usize, usize), Vec<u64>>::new();
-
-    // Filter only part numbers
+    
     for (i, row) in map.iter().enumerate() {
         let mut row_iterator = row.iter().enumerate().peekable();
 
