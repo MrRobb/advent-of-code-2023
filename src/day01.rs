@@ -1,61 +1,31 @@
-#![allow(clippy::must_use_candidate, clippy::missing_panics_doc)]
+#![allow(clippy::must_use_candidate, clippy::missing_panics_doc, clippy::cast_lossless)]
 
-fn find_digit(line: &str, reverse: bool) -> Option<u64> {
-    let digits = [
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "0", "1", "2", "3", "4", "5",
-        "6", "7", "8", "9",
-    ];
-    let mut min_position = None;
-    let mut min_digit = None;
-
-    for digit in &digits {
-        if reverse {
-            if let Some(position) = line.rfind(digit) {
-                if position >= min_position.unwrap_or(position) {
-                    min_position = Some(position);
-                    min_digit = Some(digit);
-                }
-            }
-        } else if let Some(position) = line.find(digit) {
-            if position <= min_position.unwrap_or(position) {
-                min_position = Some(position);
-                min_digit = Some(digit);
-            }
-        }
-    }
-
-    min_digit.map(|digit| match *digit {
-        "zero" => 0,
-        "one" => 1,
-        "two" => 2,
-        "three" => 3,
-        "four" => 4,
-        "five" => 5,
-        "six" => 6,
-        "seven" => 7,
-        "eight" => 8,
-        "nine" => 9,
-        n => n.parse::<u64>().unwrap(),
-    })
-}
-
-pub fn join_digits(input: &str) -> u64 {
+pub fn join_digits(input: &str) -> u32 {
     input
         .lines()
         .map(|line: &str| {
-            let first = u64::from(line.chars().find(char::is_ascii_digit).unwrap().to_digit(10).unwrap());
-            let last = u64::from(line.chars().rfind(char::is_ascii_digit).unwrap().to_digit(10).unwrap());
+            let first = line.chars().find(char::is_ascii_digit).unwrap().to_digit(10).unwrap();
+            let last = line.chars().rfind(char::is_ascii_digit).unwrap().to_digit(10).unwrap();
             first * 10 + last
         })
         .sum()
 }
 
-pub fn join_speelled_digits(input: &str) -> u64 {
+pub fn join_speelled_digits(input: &str) -> u32 {
     input
+        .replace("one", "o1e")
+        .replace("two", "t2")
+        .replace("three", "3e")
+        .replace("four", "4")
+        .replace("five", "5e")
+        .replace("six", "6")
+        .replace("seven", "7n")
+        .replace("eight", "8t")
+        .replace("nine", "9e")
         .lines()
-        .map(|line: &str| {
-            let first = find_digit(line, false).unwrap();
-            let last = find_digit(line, true).unwrap();
+        .map(|line| {
+            let first = line.chars().find(char::is_ascii_digit).unwrap().to_digit(10).unwrap();
+            let last = line.chars().rfind(char::is_ascii_digit).unwrap().to_digit(10).unwrap();
             first * 10 + last
         })
         .sum()
