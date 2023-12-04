@@ -1,12 +1,13 @@
 #![allow(clippy::must_use_candidate, clippy::missing_panics_doc)]
 
-use std::{borrow::BorrowMut, collections::BTreeMap};
+use std::borrow::BorrowMut;
+use std::collections::BTreeMap;
 
 use pathfinding::matrix::Matrix;
 
 fn build_part_map(map: &Matrix<char>) -> BTreeMap<(usize, usize), Vec<u64>> {
     let mut part_numbers = BTreeMap::<(usize, usize), Vec<u64>>::new();
-    
+
     for (i, row) in map.iter().enumerate() {
         let mut row_iterator = row.iter().enumerate().peekable();
 
