@@ -1,6 +1,6 @@
 #![allow(clippy::must_use_candidate, clippy::missing_panics_doc, clippy::cast_lossless)]
 
-pub fn join_digits(input: &str) -> u32 {
+pub fn part1(input: &str) -> u32 {
     input
         .lines()
         .map(|line: &str| {
@@ -11,7 +11,7 @@ pub fn join_digits(input: &str) -> u32 {
         .sum()
 }
 
-pub fn join_speelled_digits(input: &str) -> u32 {
+pub fn part2(input: &str) -> u32 {
     input
         .replace("one", "o1e")
         .replace("two", "t2")
@@ -34,7 +34,7 @@ pub fn join_speelled_digits(input: &str) -> u32 {
 pub fn main() {
     let input = std::fs::read_to_string("input/day01.txt").expect("Input file not found");
     let now = std::time::Instant::now();
-    println!("PART 1 = {}", join_digits(&input));
-    println!("PART 2 = {}", join_speelled_digits(&input));
+    println!("PART 1 = {}", part1(&input));
+    println!("PART 2 = {}", part2(&input));
     println!("Execution time: {:?}", now.elapsed());
 }

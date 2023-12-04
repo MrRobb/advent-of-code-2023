@@ -4,7 +4,7 @@
 
 |        | Problem                                            | Solution                                                                         | Execution time        | Lines of code | Finished |
 |--------|----------------------------------------------------|----------------------------------------------------------------------------------|-----------------------|---------------|----------|
-| Day 1  | [Problem 1](https://adventofcode.com/2023/day/1)   | [day01.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day01.rs) | 61.209 µs + 2.1395 ms | 64            | ✓        |
+| Day 1  | [Problem 1](https://adventofcode.com/2023/day/1)   | [day01.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day01.rs) | 61.209 µs + 463.01 µs | 37            | ✓        |
 | Day 2  | [Problem 2](https://adventofcode.com/2023/day/2)   | [day02.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day02.rs) | 95.278 µs + 92.764 µs | 46            | ✓        |
 | Day 3  | [Problem 3](https://adventofcode.com/2023/day/3)   | [day03.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day03.rs) | 598.86 µs + 541.84 µs | 51            | ✓        |
 | Day 4  | [Problem 4](https://adventofcode.com/2023/day/4)   | [day04.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day04.rs) | 337.20 µs + 326.75 µs | 48            | ✓        |
