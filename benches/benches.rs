@@ -23,7 +23,7 @@ fn bench1(c: &mut Criterion) {
 
     let input05 = read_to_string("input/day05.txt").expect("Input file not found");
     c.bench_function("Day 5 | Part 1", |b| b.iter(|| day05::part1(&input05)));
-    // c.bench_function("Day 5 | Part 2", |b| b.iter(|| day05::part2(&input05)));
+    c.bench_function("Day 5 | Part 2", |b| b.iter(|| day05::part2(&input05)));
 }
 
 criterion_group!(benches, bench1);
