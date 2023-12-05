@@ -15,13 +15,18 @@ fn map_seeds_ranges(seeds: Vec<Range<u64>>, mappings: &Mappings) -> Vec<Range<u6
 
                 let final_end = mappings
                     .iter()
+
+                    // Get only the ones that affect the current seed range
                     .filter(|(_, source_range_start, range_length)| {
                         source_range_start + range_length > seed_range.start && *source_range_start < seed_range.end
                     })
+
+                    // Sort them to only have to apply them once and avoid collisions
                     .sorted_by_key(|(_, source_range_start, _)| *source_range_start)
                     .fold(
                         seed_range.start,
                         |current, (destination_range_start, source_range_start, range_length)| {
+                            
                             // From current to start of the mapping
                             if current < *source_range_start {
                                 mapped_ranges.push(current..*source_range_start);
