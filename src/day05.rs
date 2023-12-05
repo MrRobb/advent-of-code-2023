@@ -1,8 +1,8 @@
 #![allow(clippy::must_use_candidate, clippy::missing_panics_doc)]
 
-// use indicatif::ParallelProgressIterator;
+use indicatif::ParallelProgressIterator;
 use itertools::Itertools;
-// use rayon::prelude::*;
+use rayon::prelude::*;
 
 #[derive(Debug)]
 struct Mapping {
@@ -13,15 +13,15 @@ struct Mapping {
 
 fn map_seeds(seeds: Vec<u64>, mappings: &[Vec<Mapping>]) -> Vec<u64> {
     mappings.iter().fold(seeds, |seeds, mappings| {
-        // let pb = indicatif::ProgressBar::new(seeds.len() as u64);
-        // pb.set_style(
-        //     indicatif::ProgressStyle::default_bar()
-        //         .template("{spinner} [{elapsed_precise} / {eta_precise}] {wide_bar:.cyan/blue} {pos}/{len}")
-        //         .unwrap(),
-        // );
+        let pb = indicatif::ProgressBar::new(seeds.len() as u64);
+        pb.set_style(
+            indicatif::ProgressStyle::default_bar()
+                .template("{spinner} [{elapsed_precise} / {eta_precise}] {wide_bar:.cyan/blue} {pos}/{len}")
+                .unwrap(),
+        );
         seeds
-            .iter()
-            // .progress_with(pb)
+            .par_iter()
+            .progress_with(pb)
             .map(|seed| {
                 mappings
                     // .par_iter()
