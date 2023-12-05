@@ -8,7 +8,10 @@ default-run = "advent-of-code-2023"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+indicatif = { version = "0.17.7", features = ["rayon"] }
+itertools = "0.12.0"
 pathfinding = "4.4.0"
+rayon = "1.8.0"
 
 
 [dev-dependencies]
@@ -37,3 +40,7 @@ path = "src/day03.rs"
 [[bin]]
 name = "day04"
 path = "src/day04.rs"
+
+[[bin]]
+name = "day05"
+path = "src/day05.rs"
