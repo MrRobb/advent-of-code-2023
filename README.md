@@ -9,6 +9,8 @@
 | Day 3  | [Problem 3](https://adventofcode.com/2023/day/3)   | [day03.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day03.rs) | 598.86 µs + 541.84 µs | 51            | ✓        |
 | Day 4  | [Problem 4](https://adventofcode.com/2023/day/4)   | [day04.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day04.rs) | 337.20 µs + 326.75 µs | 48            | ✓        |
 | Day 5  | [Problem 5](https://adventofcode.com/2023/day/5)   | [day05.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day05.rs) | 61.339 µs + 113.32 µs | 92            | ✓        |
+| Day 6  | [Problem 6](https://adventofcode.com/2023/day/6)   | [day06.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day06.rs) | 537.83 ns + 5.8270 ms | 34            | ✓        |
+
 
 > The benchmarks are measured (non-scientifically) with [cargo-criterion](https://github.com/bheisler/cargo-criterion) on a AMD Ryzen 5 3600 Desktop. More in the [benchmarks](#benchmarks) section.
 > The lines of code are measured using [ghloc](https://github.com/MrRobb/ghloc-rs), excluding comments and empty lines.
