@@ -8,20 +8,11 @@ fn build_differences(line: &str) -> Vec<Vec<i64>> {
         .map(|value| value.parse::<i64>().unwrap())
         .collect::<Vec<_>>();
 
-    let mut differences = vec![values];
-
-    while differences.last().unwrap().iter().any(|value| *value != 0) {
-        let values = differences
-            .last()
-            .unwrap()
-            .iter()
-            .tuple_windows()
-            .map(|(a, b)| b - a)
-            .collect::<Vec<_>>();
-        differences.push(values);
-    }
-
-    differences
+    std::iter::successors(Some(values), |values| {
+        Some(values.iter().tuple_windows().map(|(a, b)| b - a).collect::<Vec<_>>())
+    })
+    .take_while(|values| values.iter().any(|value| *value != 0))
+    .collect::<Vec<_>>()
 }
 
 pub fn part1(input: &str) -> i64 {
