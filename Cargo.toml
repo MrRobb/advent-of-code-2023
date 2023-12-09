@@ -9,6 +9,7 @@ default-run = "advent-of-code-2023"
 
 [dependencies]
 itertools = "0.12.0"
+num = "0.4.1"
 pathfinding = "4.4.0"
 rayon = "1.8.0"
 
@@ -51,3 +52,7 @@ path = "src/day06.rs"
 [[bin]]
 name = "day07"
 path = "src/day07.rs"
+
+[[bin]]
+name = "day08"
+path = "src/day08.rs"
