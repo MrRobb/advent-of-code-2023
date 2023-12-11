@@ -1,6 +1,7 @@
 #![allow(clippy::must_use_candidate, clippy::missing_panics_doc)]
 
-use std::{collections::HashMap, string::ToString};
+use std::collections::HashMap;
+use std::string::ToString;
 
 use itertools::{FoldWhile, Itertools};
 use num::Integer;

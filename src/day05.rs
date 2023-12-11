@@ -26,7 +26,6 @@ fn map_seeds_ranges(seeds: Vec<Range<u64>>, mappings: &Mappings) -> Vec<Range<u6
                     .fold(
                         seed_range.start,
                         |current, (destination_range_start, source_range_start, range_length)| {
-                            
                             // From current to start of the mapping
                             if current < *source_range_start {
                                 mapped_ranges.push(current..*source_range_start);

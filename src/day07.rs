@@ -26,7 +26,8 @@ impl Card {
             'J' => {
                 if with_joker {
                     Self::Joker
-                } else {
+                }
+                else {
                     Self::J
                 }
             },
