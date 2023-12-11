@@ -1,5 +1,7 @@
 #![allow(clippy::must_use_candidate, clippy::missing_panics_doc)]
 
+use std::collections::BTreeSet;
+
 use pathfinding::matrix::Matrix;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -77,14 +79,7 @@ impl NodeType {
     }
 }
 
-pub fn part1(input: &str) -> usize {
-    let map = Matrix::from_rows(
-        input
-            .lines()
-            .map(|line| line.chars().map(NodeType::from_char).collect::<Vec<_>>()),
-    )
-    .unwrap();
-
+fn find_path(map: &Matrix<NodeType>) -> Vec<((usize, usize), Direction)> {
     let starting_position = map
         .iter()
         .enumerate()
@@ -93,6 +88,8 @@ pub fn part1(input: &str) -> usize {
 
     [Direction::North, Direction::South, Direction::East, Direction::West]
         .into_iter()
+
+        // Follow the pipe
         .map(|starting_direction| {
             std::iter::successors(
                 Some((starting_position, starting_direction)),
@@ -107,16 +104,64 @@ pub fn part1(input: &str) -> usize {
             )
             .collect::<Vec<_>>()
         })
+
+        // Find the path that ends in the starting position
         .find(|path| {
             let (last_position, last_direction) = path.last().unwrap();
             map.move_in_direction(*last_position, last_direction.to_direction()) == Some(starting_position)
-        })
-        .map(|path| path.len().div_ceil(2))
-        .unwrap()
+        }).unwrap()
 }
 
-pub fn part2(input: &str) -> u64 {
-    0
+pub fn part1(input: &str) -> usize {
+    let map = Matrix::from_rows(
+        input
+            .lines()
+            .map(|line| line.chars().map(NodeType::from_char).collect::<Vec<_>>()),
+    )
+    .unwrap();
+
+    find_path(&map).len().div_ceil(2)
+}
+
+pub fn part2(input: &str) -> usize {
+    let map = Matrix::from_rows(
+        input
+            .lines()
+            .map(|line| line.chars().map(NodeType::from_char).collect::<Vec<_>>()),
+    )
+    .unwrap();
+
+    //  Calculate path
+    let path = find_path(&map);
+
+    // Extract the directions of start
+    let start_directions = [path.first().unwrap().1, path.last().unwrap().1];
+
+    let path = path.into_iter().map(|(position, _)| position).collect::<BTreeSet<_>>();
+
+    // Apply even-odd algorithm
+    map.iter()
+        .enumerate()
+        .map(|(i, row)| {
+            let mut is_inside = false;
+            row.iter()
+                .enumerate()
+                .filter_map(|(j, node)| {
+                    if !path.contains(&(i, j)) {
+                        return if is_inside { Some(()) } else { None };
+                    }
+
+                    match *node {
+                        NodeType::Vertical | NodeType::BendL | NodeType::BendJ => is_inside = !is_inside,
+                        NodeType::Start if start_directions.contains(&Direction::North) => is_inside = !is_inside,
+                        _ => {},
+                    }
+
+                    None
+                })
+                .count()
+        })
+        .sum()
 }
 
 pub fn main() {
