@@ -13,6 +13,8 @@
 | Day 7  | [Problem 7](https://adventofcode.com/2023/day/7)   | [day07.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day07.rs) | 2.9551 ms + 2.8716 ms | 155           | ✓        |
 | Day 8  | [Problem 8](https://adventofcode.com/2023/day/8)   | [day08.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day08.rs) | 1.9298 ms + 10.211 ms | 72            | ✓        |
 | Day 9  | [Problem 9](https://adventofcode.com/2023/day/9)   | [day09.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day09.rs) | 572.13 µs + 565.22 µs | 49            | ✓        |
+| Day 10 | [Problem 10](https://adventofcode.com/2023/day/10) | [day10.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day10.rs) | 637.60 µs +           | 115           | ✗        |
+| Day 11 | [Problem 11](https://adventofcode.com/2023/day/11) | [day11.rs](https://github.com/MrRobb/advent-of-code-2023/blob/main/src/day11.rs) | 134.43 µs + 124.47 µs | 50            | ✓        |
 
 
 > The benchmarks are measured (non-scientifically) with [cargo-criterion](https://github.com/bheisler/cargo-criterion) on a AMD Ryzen 5 3600 Desktop. More in the [benchmarks](#benchmarks) section.

@@ -41,9 +41,13 @@ fn bench1(c: &mut Criterion) {
     // c.bench_function("Day 9 | Part 1", |b| b.iter(|| day09::part1(&input09)));
     // c.bench_function("Day 9 | Part 2", |b| b.iter(|| day09::part2(&input09)));
 
-    let input10 = read_to_string("input/day10.txt").expect("Input file not found");
-    c.bench_function("Day 10 | Part 1", |b| b.iter(|| day10::part1(&input10)));
+    // let input10 = read_to_string("input/day10.txt").expect("Input file not found");
+    // c.bench_function("Day 10 | Part 1", |b| b.iter(|| day10::part1(&input10)));
     // c.bench_function("Day 10 | Part 2", |b| b.iter(|| day10::part2(&input10)));
+
+    // let input11 = read_to_string("input/day11.txt").expect("Input file not found");
+    // c.bench_function("Day 11 | Part 1", |b| b.iter(|| day11::part1(&input11)));
+    // c.bench_function("Day 11 | Part 2", |b| b.iter(|| day11::part2(&input11)));
 }
 
 criterion_group!(benches, bench1);
