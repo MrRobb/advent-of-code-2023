@@ -45,7 +45,7 @@ enum NodeType {
 }
 
 impl NodeType {
-    fn from_char(c: char) -> Self {
+    const fn from_char(c: char) -> Self {
         match c {
             '|' => Self::Vertical,
             '-' => Self::Horizontal,
